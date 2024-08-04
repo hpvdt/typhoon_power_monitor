@@ -6152,17 +6152,6 @@
 		)
 		(uuid "78a2295d-5381-48ad-b090-11699019b820")
 	)
-	(label "USB_{D}+"
-		(at 62.23 69.85 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7bccfeb0-dbeb-45ec-adb8-d18fceeed0c8")
-	)
 	(label "SCLK"
 		(at 62.23 67.31 0)
 		(fields_autoplaced yes)
@@ -6217,6 +6206,17 @@
 			(justify right bottom)
 		)
 		(uuid "8a3e3bce-c8b1-4376-964e-11363a0abdfe")
+	)
+	(label "USB_{D}+"
+		(at 25.4 82.55 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8c38687c-ecb6-4898-8258-bd811dcac564")
 	)
 	(label "ADS-"
 		(at 116.84 30.48 0)
@@ -6295,6 +6295,17 @@
 		)
 		(uuid "ad69998a-2eae-448b-a6e0-5a8a545610bf")
 	)
+	(label "USB_{D}-"
+		(at 62.23 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b77d31b0-d089-4bae-b0f6-fdb9732e1054")
+	)
 	(label "CS_{ADC}"
 		(at 25.4 54.61 180)
 		(fields_autoplaced yes)
@@ -6360,17 +6371,6 @@
 			(justify right bottom)
 		)
 		(uuid "e00c41f4-14b3-4909-aef1-8bf73afe0355")
-	)
-	(label "USB_{D}-"
-		(at 62.23 72.39 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e07c8e3f-c9f2-4c1b-beb7-e47f7c9d0f78")
 	)
 	(label "CANL"
 		(at 118.11 129.54 0)
