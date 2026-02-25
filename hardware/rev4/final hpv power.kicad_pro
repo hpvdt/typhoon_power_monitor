@@ -521,6 +521,12 @@
         },
         {
           "group_by": false,
+          "label": "Item Name",
+          "name": "Item Name",
+          "show": true
+        },
+        {
+          "group_by": false,
           "label": "Qty",
           "name": "${QUANTITY}",
           "show": true
@@ -538,6 +544,12 @@
           "show": true
         },
         {
+          "group_by": false,
+          "label": "Digikey Link",
+          "name": "Digikey Link",
+          "show": true
+        },
+        {
           "group_by": true,
           "label": "Exclude from BOM",
           "name": "${EXCLUDE_FROM_BOM}",
@@ -548,6 +560,12 @@
           "label": "Exclude from Board",
           "name": "${EXCLUDE_FROM_BOARD}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": false
         },
         {
           "group_by": true,
@@ -597,7 +615,7 @@
       "include_excluded_from_bom": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Digikey Link"
     },
     "connection_grid_size": 50.0,
     "drawing": {
