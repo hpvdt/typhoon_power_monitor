@@ -109,8 +109,8 @@
 	(net 29 "/HX711 PDSCK")
 	(net 30 "GND")
 	(net 31 "unconnected-(U3-XO-Pad13)")
-	(net 32 "/GPIO12")
-	(net 33 "/GPIO11")
+	(net 32 "/RX")
+	(net 33 "/TX")
 	(net 34 "/GPIO9")
 	(net 35 "/GPIO10")
 	(net 36 "Net-(SW2-A)")
@@ -118,8 +118,8 @@
 	(net 38 "unconnected-(U1-IO16-Pad9)")
 	(net 39 "unconnected-(U1-IO0-Pad27)")
 	(net 40 "unconnected-(U1-IO1-Pad39)")
-	(net 41 "unconnected-(U1-TXD0-Pad37)")
-	(net 42 "unconnected-(U1-RXD0-Pad36)")
+	(net 41 "unconnected-(U1-IO2-Pad38)")
+	(net 42 "unconnected-(U1-IO42-Pad35)")
 	(net 43 "unconnected-(U1-IO17-Pad10)")
 	(net 44 "unconnected-(U1-IO7-Pad7)")
 	(net 45 "unconnected-(U1-IO4-Pad4)")
@@ -153,7 +153,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x12"
+		(property "Value" "~"
 			(at 13.75 3.4 90)
 			(layer "F.Fab")
 			(uuid "0cadb8d0-832f-426f-9786-1024171292bd")
@@ -164,7 +164,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -184,6 +184,58 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Item Name" "Breakout header"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3bbc8b60-f35b-4613-a492-15251ad403dc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "B12B-XH-A"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e21f5a66-674c-4566-8bc0-06c4ab182199")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/jst-sales-america-inc/B12B-XH-A/1651057"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8b9a31a5-8d41-4f71-b916-fd9d69001fd2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "JST Sales America Inc."
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f4b4573c-f781-41c5-882b-f5bd7fd1fd78")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -549,7 +601,7 @@
 			(drill 0.95)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 32 "/GPIO12")
+			(net 35 "/GPIO10")
 			(pinfunction "Pin_9")
 			(pintype "passive")
 			(uuid "0f08a618-8f8d-4d47-8a97-15184f01c553")
@@ -560,7 +612,7 @@
 			(drill 0.95)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 33 "/GPIO11")
+			(net 34 "/GPIO9")
 			(pinfunction "Pin_10")
 			(pintype "passive")
 			(uuid "30f2fac2-d80a-4d41-847e-b8c9a9e9eaea")
@@ -571,7 +623,7 @@
 			(drill 0.95)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 35 "/GPIO10")
+			(net 32 "/RX")
 			(pinfunction "Pin_11")
 			(pintype "passive")
 			(uuid "4ff3f998-91ae-4ede-a566-9d9eafc77e8d")
@@ -582,7 +634,7 @@
 			(drill 0.95)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 34 "/GPIO9")
+			(net 33 "/TX")
 			(pinfunction "Pin_12")
 			(pintype "passive")
 			(uuid "b76c4bc0-2af4-4d4e-8d1c-582854b11b70")
@@ -617,7 +669,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x04_Pin"
+		(property "Value" "~"
 			(at 3.75 3.4 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -629,7 +681,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -653,7 +705,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/jst-sales-america-inc/S4B-EH/926535?s=N4IgTCBcDaIFIGUAqACAxgewHZYKZoBcMAnFBAFgCEUBRACRAF0BfIA"
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/jst-sales-america-inc/B4B-XH-A/1651047"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -679,12 +731,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  JST Sales America Inc."
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "cf448fca-86c8-4859-b82e-d17079f23e8b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "B4B-XH-A"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fec41f32-f341-4eaf-be6a-8d2e1ccca2a3")
 			(effects
 				(font
 					(size 1 1)
@@ -1033,7 +1098,7 @@
 				)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10u"
 			(at 3.5 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1045,7 +1110,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/43/CL10A106KP8NNNC_Spec.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1095,12 +1160,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "344778a8-579f-4fdb-89d2-f967349affb8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  CL10A106KP8NNNC"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8c01ec5b-079e-40ca-b699-3a0b1b347dfa")
 			(effects
 				(font
 					(size 1 1)
@@ -1284,7 +1362,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/KEM_C1002_X7R_SMD"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1308,7 +1386,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0603C104K5RACTU/1465594 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0805C104K5RACTU/411169 "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1334,12 +1412,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  KEMET"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "004e1eaa-1cca-420c-aa32-56963447af4a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  C0805C104K5RACTU"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d06a544c-78bb-4ce6-aabf-5fadf78eb8a0")
 			(effects
 				(font
 					(size 1 1)
@@ -1523,7 +1614,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/PYU-RT_1-TO-0-01_ROHS_L"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -1547,7 +1638,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/koa-speer-electronics-inc/RN73H1JTTD3200B25/10683421 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/yageo/RT0805BRD07320RL/5932331  "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1573,12 +1664,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  YAGEO"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d71f05bc-f886-4504-879b-e8e03c5ac282")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  RT0805BRD07320RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c045faac-cf01-4113-9cce-1f53726014ee")
 			(effects
 				(font
 					(size 1 1)
@@ -1762,7 +1866,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.seielect.com/catalog/SEI-RMCF_RMCP.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1786,7 +1890,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" ""
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0805JT5K10/1757930  "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1812,12 +1916,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Stackpole Electronics Inc"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2693608b-7a12-4432-b54d-45e07e051ed1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "RMCF0805JT5K10"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0de27db2-7bdd-473e-80f0-fa332b07ae3f")
 			(effects
 				(font
 					(size 1 1)
@@ -2000,7 +2117,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.seielect.com/catalog/SEI-RMCF_RMCP.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -2024,7 +2141,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" ""
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0805JT5K10/1757930  "
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2050,12 +2167,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Stackpole Electronics Inc"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4a6a6717-16ee-4669-a5b0-c678f0b22ac4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "RMCF0805JT5K10"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d6ce4ad1-9ce6-429b-b3b3-af9a5a405de5")
 			(effects
 				(font
 					(size 1 1)
@@ -2239,7 +2369,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2263,7 +2393,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/yageo/RC0603FR-0720KL/727040 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/panasonic-electronic-components/ERA-6AEB203V/1465780 "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2289,12 +2419,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Panasonic Electronic Components"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3d45e8a9-cb6d-4d52-939d-afd92c6ea256")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "ERA-6AEB203V"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "10136cf2-4a39-41a1-8c82-6294a3757524")
 			(effects
 				(font
 					(size 1 1)
@@ -2478,7 +2621,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -2502,7 +2645,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/yageo/RC0603FR-07100RL/726888 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0805100RFKEA/1175523"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2528,12 +2671,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Vishay Dale"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4e635879-37d9-4b2f-8273-f73c4e314962")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  CRCW0805100RFKEA"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6b8a773f-0066-44c4-8369-d21ea322f664")
 			(effects
 				(font
 					(size 1 1)
@@ -2706,7 +2862,7 @@
 				)
 			)
 		)
-		(property "Value" "ESP32-S3-WROOM-1"
+		(property "Value" "~"
 			(at 0.055 6.5 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2745,7 +2901,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N4R2/16162643"
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/espressif-systems/ESP32-S3-WROOM-1-N4R2/16162643 "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2771,12 +2927,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Espressif Systems"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "aac69842-5d8f-4d57-ae4a-dbabb0f9b3f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  ESP32-S3-WROOM-1-N4R2"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c25202b-b0a6-49bd-ad09-b140d8c1c335")
 			(effects
 				(font
 					(size 1 1)
@@ -3381,7 +3550,7 @@
 			(at 8.75 3.63)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 32 "/GPIO12")
+			(net 35 "/GPIO10")
 			(pinfunction "IO40")
 			(pintype "bidirectional")
 			(uuid "ab85df34-c983-48b5-ac22-9b6153c78101")
@@ -3390,7 +3559,7 @@
 			(at 8.75 2.36)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 33 "/GPIO11")
+			(net 34 "/GPIO9")
 			(pinfunction "IO41")
 			(pintype "bidirectional")
 			(uuid "add0496d-a606-449e-b065-296fdf81b53c")
@@ -3399,36 +3568,36 @@
 			(at 8.75 1.09)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 35 "/GPIO10")
+			(net 42 "unconnected-(U1-IO42-Pad35)")
 			(pinfunction "IO42")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "f0abddf0-7e0c-4079-8b14-456a718c6de2")
 		)
 		(pad "36" smd rect
 			(at 8.75 -0.18)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 42 "unconnected-(U1-RXD0-Pad36)")
+			(net 32 "/RX")
 			(pinfunction "RXD0")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(uuid "dbe2d5e9-c3ef-4a69-aa50-bcf9db4a311d")
 		)
 		(pad "37" smd rect
 			(at 8.75 -1.45)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 41 "unconnected-(U1-TXD0-Pad37)")
+			(net 33 "/TX")
 			(pinfunction "TXD0")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(uuid "da569908-39eb-4a99-82d5-17e690b62765")
 		)
 		(pad "38" smd rect
 			(at 8.75 -2.72)
 			(size 1.5 0.9)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 34 "/GPIO9")
+			(net 41 "unconnected-(U1-IO2-Pad38)")
 			(pinfunction "IO2")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "87e896ba-c847-4c68-a7ba-e762ac72611e")
 		)
 		(pad "39" smd rect
@@ -3473,7 +3642,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "73846a90-7e1b-4b05-9987-9209576855cf")
 		)
 		(pad "41" thru_hole circle
 			(at -2.2 1.06)
@@ -3486,7 +3655,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "1b4b7a1a-6bda-41e0-976e-25dff577b20f")
 		)
 		(pad "41" thru_hole circle
 			(at -2.2 2.46)
@@ -3499,7 +3668,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "17aefd68-366e-4384-a66a-7b54113383cd")
 		)
 		(pad "41" thru_hole circle
 			(at -2.2 3.86)
@@ -3512,7 +3681,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "467c547e-2d12-4acc-b402-c693caadf12e")
 		)
 		(pad "41" thru_hole circle
 			(at -1.5 1.76)
@@ -3525,7 +3694,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "9ce5f2ed-0a27-4f2f-8f57-8d363138d253")
 		)
 		(pad "41" smd rect
 			(at -1.5 2.46 270)
@@ -3536,7 +3705,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "d68cb921-b0eb-4d15-aa02-5be4e272a612")
 		)
 		(pad "41" thru_hole circle
 			(at -1.5 3.16)
@@ -3549,7 +3718,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "ba81dbba-5cdb-43ed-a162-31f4959903e5")
 		)
 		(pad "41" thru_hole circle
 			(at -0.8 1.06)
@@ -3562,7 +3731,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "046090e7-9cb3-4d86-babb-4b609a9b43f7")
 		)
 		(pad "41" thru_hole circle
 			(at -0.8 2.46)
@@ -3575,7 +3744,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "134e69eb-2a00-49b3-ab86-83bfa2874d1f")
 		)
 		(pad "41" thru_hole circle
 			(at -0.8 3.86)
@@ -3588,7 +3757,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "b01dd06a-cbfe-4a7f-854a-330ee4deb00d")
 		)
 		(pad "41" thru_hole circle
 			(at -0.1 1.76)
@@ -3601,7 +3770,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "f0e1dd16-7b5e-4349-94f8-7dce2aff86d3")
 		)
 		(pad "41" thru_hole circle
 			(at -0.1 3.16)
@@ -3614,7 +3783,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "fe8d9ce7-94fc-4470-8a1c-0586d34455eb")
+			(uuid "b0d04c82-64eb-4474-bd33-6829d2a5de89")
 		)
 		(zone
 			(net 0)
@@ -3678,7 +3847,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "0.1u"
 			(at 3.96 0.19 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3690,7 +3859,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/KEM_C1002_X7R_SMD"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3714,7 +3883,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0603C104K5RACTU/1465594 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0805C104K5RACTU/411169 "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3740,12 +3909,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  KEMET"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "87905c08-e3af-41ac-add9-b34495e366af")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  C0805C104K5RACTU"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "00672a5b-7683-4bbc-a317-9e373e9d7e72")
 			(effects
 				(font
 					(size 1 1)
@@ -3918,7 +4100,7 @@
 				)
 			)
 		)
-		(property "Value" "USB_C_Receptacle_USB2.0_14P"
+		(property "Value" "~"
 			(at 0 5 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3931,7 +4113,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://gct.co/files/specs/usb4110-spec.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3957,7 +4139,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" ""
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/gct/USB4110-GF-A/10384547"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3983,12 +4165,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "GCT"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e86386b3-47e8-4646-9c6d-a58f2b5b6290")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "USB4110-GF-A"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c565f88-5197-4d38-9c56-b882e3c02bc3")
 			(effects
 				(font
 					(size 1 1)
@@ -4511,7 +4706,7 @@
 			(pinfunction "SHIELD")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "fd9c51a6-6acd-42fb-8edc-65e685e49a6d")
+			(uuid "2e1c6242-581d-49c6-89cb-bf5e462d29cd")
 		)
 		(pad "S1" smd roundrect
 			(at 5.11 -3.105 270)
@@ -4522,7 +4717,7 @@
 			(pinfunction "SHIELD")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "fd9c51a6-6acd-42fb-8edc-65e685e49a6d")
+			(uuid "0ef4b106-d8b0-466d-bb6a-f81079362a75")
 		)
 		(pad "S1" smd roundrect
 			(at 5.11 0.825 270)
@@ -4533,7 +4728,7 @@
 			(pinfunction "SHIELD")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "fd9c51a6-6acd-42fb-8edc-65e685e49a6d")
+			(uuid "1cdbd10f-e06a-4f60-bac5-9433eef4e856")
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_GCT_USB4110.step"
@@ -4577,7 +4772,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://invensense.tdk.com/download-pdf/icm-42670-p-datasheet/"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4601,7 +4796,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/tdk-invensense/ICM-42670-P/14319524?s=N4IgTCBcDaIJIGECyBaALGAbAdgAwgF0BfIA  "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/tdk-invensense/ICM-42670-P/14319524?s=N4IgTCBcDaIJIGECyBaALGAbAdgAwgF0BfIA"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4627,12 +4822,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  TDK InvenSense"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f4ece8fe-1ec6-47d2-9f91-a735f753f780")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  ICM-42670-P"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6ad979fa-b59d-4f39-9dcd-0d2647f7d10d")
 			(effects
 				(font
 					(size 1 1)
@@ -4930,7 +5138,7 @@
 				)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10u"
 			(at 0 1.68 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4942,7 +5150,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/43/CL10A106KP8NNNC_Spec.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4992,12 +5200,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "62aa8d87-ff2e-4bda-bdf4-9326639f65f9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  CL10A106KP8NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ca95f520-2271-4880-baf8-c4438850f82e")
 			(effects
 				(font
 					(size 1 1)
@@ -5181,7 +5402,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5205,7 +5426,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/yageo/RC0603FR-07100RL/726888 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0805100RFKEA/1175523"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5231,12 +5452,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Vishay Dale"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "86c28916-df70-46dd-ac74-218f769b2123")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  CRCW0805100RFKEA"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "69851d16-308f-4127-ae4f-3eaddca19ebc")
 			(effects
 				(font
 					(size 1 1)
@@ -5406,7 +5640,7 @@
 				)
 			)
 		)
-		(property "Value" "HX711"
+		(property "Value" "~"
 			(at 0.17 6.055 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -5418,7 +5652,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://web.archive.org/web/20220615044707/https://akizukidenshi.com/download/ds/avia/hx711.pdf"
+		(property "Datasheet" "https://cdn.sparkfun.com/assets/b/f/5/a/e/hx711F_EN.pdf?_gl=1*pnph0z*_ga*MTQzMTY3MDA1NS4xNjk4OTE0MDE5*_ga_T369JS7J9N*MTY5ODkxNDAxOC4xLjEuMTY5ODkxNTQyNC41My4wLjA."
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -5468,12 +5702,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  SparkFun Electronics"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0e6162ff-c23d-425c-acb1-30b4adfed0ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "13879"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a1e18b34-14aa-41dc-98ef-b3009ce733ec")
 			(effects
 				(font
 					(size 1 1)
@@ -5803,7 +6050,7 @@
 				)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10u"
 			(at 0 1.68 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5815,7 +6062,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/43/CL10A106KP8NNNC_Spec.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5865,12 +6112,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b360e70f-ade1-4b9d-bcdf-bd589b2ab4c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  CL10A106KP8NNNC"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70cb69a2-2261-43c4-b5b3-ddd04e12ba2a")
 			(effects
 				(font
 					(size 1 1)
@@ -6042,7 +6302,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "0.1u"
 			(at 0 1.68 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6054,7 +6314,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/KEM_C1002_X7R_SMD"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6078,7 +6338,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0603C104K5RACTU/1465594 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0805C104K5RACTU/411169 "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6104,12 +6364,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  KEMET"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e8fedd00-3d81-4f53-8002-2b15b6d60882")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  C0805C104K5RACTU"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "592f25dc-1afb-45f5-9626-1d3c3ae75854")
 			(effects
 				(font
 					(size 1 1)
@@ -6294,7 +6567,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.seielect.com/catalog/SEI-RMCF_RMCP.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -6318,7 +6591,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" ""
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0805JT5K10/1757930  "
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6344,12 +6617,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Stackpole Electronics Inc"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "bc2d899e-25b9-4a4f-bbff-f868f46f87b1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "RMCF0805JT5K10"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eafc499c-c0a6-4b0b-bf68-eae5ec820cee")
 			(effects
 				(font
 					(size 1 1)
@@ -6532,7 +6818,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/895/LTST-C170GKT.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6556,7 +6842,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/150060VS55040/8557182"
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/liteon/LTST-C170GKT/269226"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6582,12 +6868,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Lite-On Inc."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "20c22b92-bfd3-412c-a8fe-3dd10be20b7a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  LTST-C170GKT"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e90cd23c-cc53-4442-922a-8c19662bd8a9")
 			(effects
 				(font
 					(size 1 1)
@@ -6793,7 +7092,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/KEM_C1002_X7R_SMD"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6817,7 +7116,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0603C103K5RACTU/411090 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0805C103K5RACTU/411157 "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6843,12 +7142,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  KEMET"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "de2b6480-0d72-4f59-8996-8f48e9240fc0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "C0805C103K5RACTU"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e809edaa-3b20-4d44-931f-bc9ac0d57011")
 			(effects
 				(font
 					(size 1 1)
@@ -7020,7 +7332,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "0.1u"
 			(at 2 -0.5 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7032,7 +7344,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/KEM_C1002_X7R_SMD"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7056,7 +7368,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0603C104K5RACTU/1465594 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/kemet/C0805C104K5RACTU/411169 "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7082,12 +7394,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  KEMET"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "52225dc1-af97-4f7e-95bd-ebe07759803d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  C0805C104K5RACTU"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4918324e-6560-455f-80e0-6541ddd3adeb")
 			(effects
 				(font
 					(size 1 1)
@@ -7271,7 +7596,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/895/LTST-C170GKT.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7295,7 +7620,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/150060VS55040/8557182"
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/liteon/LTST-C170GKT/269226"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7321,12 +7646,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Lite-On Inc."
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e235f697-c91c-47e8-a5d6-e9ff0d43ba5f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  LTST-C170GKT"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5438c11d-ec7f-4649-9f9a-6439d38d0ff7")
 			(effects
 				(font
 					(size 1 1)
@@ -7531,7 +7869,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/PYU-RT_1-TO-0-01_ROHS_L"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -7555,7 +7893,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/koa-speer-electronics-inc/RN73H1JTTD3200B25/10683421 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/yageo/RT0805BRD07320RL/5932331  "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7581,12 +7919,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  YAGEO"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "27047fd1-863a-4474-ad96-4550d49e7eea")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  RT0805BRD07320RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dd6157bd-79ed-4a55-8313-7e7f812b9ea7")
 			(effects
 				(font
 					(size 1 1)
@@ -7758,7 +8109,7 @@
 				)
 			)
 		)
-		(property "Value" "MCP1825S"
+		(property "Value" "~"
 			(at 2 -2.5 0)
 			(layer "F.Fab")
 			(uuid "d7d44549-a892-4f5e-a719-c4060c99b537")
@@ -7769,7 +8120,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf"
+		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/22056b.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7821,12 +8172,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Microchip Technology"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "fa8e5886-5bba-4616-8c2a-a58b3e2d306a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "  MCP1825ST-3302E/DB"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb352e03-28b4-4103-ab56-4ae55862e421")
 			(effects
 				(font
 					(size 1 1)
@@ -8020,7 +8384,7 @@
 			(net 30 "GND")
 			(pinfunction "GND")
 			(pintype "power_in")
-			(uuid "1ffb89ee-f9fc-43c1-8832-da0945546b22")
+			(uuid "58da33f0-b112-441a-a303-24b3540c9d62")
 		)
 		(pad "3" smd roundrect
 			(at -3.15 2.3)
@@ -8062,7 +8426,7 @@
 				)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "1u"
 			(at 0 1.68 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8074,7 +8438,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1105/CL21B105KAFNNNE_Spec.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8098,7 +8462,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10B105KP8NNNC/3887604 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL21B105KAFNNNE/3886724 "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8124,12 +8488,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6e9223bc-17d9-473d-80fc-9636c988e873")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "CL21B105KAFNNNE"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d85be1fd-f4b0-48ba-b2d9-da25cf3bfb92")
 			(effects
 				(font
 					(size 1 1)
@@ -8313,7 +8690,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8337,7 +8714,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0603FT13K3/1761279"
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/vishay-dale/CRCW080513K3FKEA/1175764 "
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8363,12 +8740,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Vishay Dale"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "20e49c8e-c134-4e29-a35c-051a402215f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "CRCW080513K3FKEA"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c637efe1-3657-4647-8c0b-dbb9dd8aed47")
 			(effects
 				(font
 					(size 1 1)
@@ -8552,7 +8942,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/41/CL21A475KAQNNNE_Spec.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8576,7 +8966,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10A475KP8NNNC/3886702 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL21A475KAQNNNE/3886902 "
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8602,12 +8992,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "cc98376d-66f0-4731-b7ba-bd3b1c173124")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "CL21A475KAQNNNE"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5ccce34-7790-4c4c-8fb8-182d01bc9461")
 			(effects
 				(font
 					(size 1 1)
@@ -8769,7 +9172,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C8"
-			(at -1.91 1.91 -0)
+			(at -1.91 1.91 0)
 			(layer "F.SilkS")
 			(uuid "9c833c8e-d5ae-44ed-92d8-ce925e16cf91")
 			(effects
@@ -8791,7 +9194,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6461/DataSheet_CL21B225KAFNNN_20241118.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -8815,7 +9218,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10B225KP8NNNC/3886792 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL21B225KAFNNNE/3888612 "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8841,12 +9244,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics "
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "31c002ed-6a7e-49ff-9485-7bbe1665b1a6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "CL21B225KAFNNNE"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7e9ac286-3f7a-4244-a79d-9809b9a9fd66")
 			(effects
 				(font
 					(size 1 1)
@@ -9029,7 +9445,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1105/CL21B105KAFNNNE_Spec.pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -9053,7 +9469,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10B105KP8NNNC/3887604 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL21B105KAFNNNE/3886724 "
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9079,12 +9495,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "  Samsung Electro-Mechanics"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "085d9dbc-eba7-4138-9492-dc4062f42552")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "CL21B105KAFNNNE"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e538fa02-7edc-45a3-8679-3bab39bbc9d0")
 			(effects
 				(font
 					(size 1 1)
@@ -9256,7 +9685,7 @@
 				)
 			)
 		)
-		(property "Value" "PNP"
+		(property "Value" "~"
 			(at 0 2.4 90)
 			(layer "F.Fab")
 			(uuid "79433449-1f6d-471c-b334-1f5899e39daf")
@@ -9267,7 +9696,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs"
+		(property "Datasheet" "https://www.mccsemi.com/pdf/Products/MMSS8550(SOT-23).pdf"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -9330,7 +9759,7 @@
 				)
 			)
 		)
-		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/mcc-micro-commercial-components/MMSS8550-L-TP/2827198 "
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/mcc-micro-commercial-components/MMSS8550-L-TP/2827198"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9356,12 +9785,25 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "MCC (Micro Commercial Components)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f9c4c724-ea66-4b1c-b18f-949abc6bc335")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "MMSS8550-L-TP"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f2a37514-dda8-4de9-b822-bdec1ca2e00b")
 			(effects
 				(font
 					(size 1 1)
@@ -9667,7 +10109,7 @@
 				)
 			)
 		)
-		(property "Value" "SW_SPST"
+		(property "Value" "~"
 			(at 3.75 6.7 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -9679,7 +10121,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.schurter.com/en/datasheet/typ_6x6_mm_tact_switches.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9701,6 +10143,58 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Item Name" "Enable switch"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7a6a7d65-4e66-4f65-99a6-8ee213fca82b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Part number" "1301.9314.24"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "80c53ea5-a61e-45dc-b7db-af66f5bfa375")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey Link" "https://www.digikey.ca/en/products/detail/schurter-inc/1301-9314-24/8536705 "
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7ae6fdd0-ac67-4be4-b783-11b44f493fe9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "SCHURTER Inc."
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "18bba70d-e7f0-438f-8931-f08314ad8ba6")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -9961,7 +10455,7 @@
 			(net 36 "Net-(SW2-A)")
 			(pinfunction "A")
 			(pintype "passive")
-			(uuid "c522908f-e518-465c-9fe6-bb13c701ef97")
+			(uuid "e55c9137-9876-4970-b503-84e422f75a45")
 		)
 		(pad "2" thru_hole circle
 			(at 0 4.5 90)
@@ -9983,7 +10477,7 @@
 			(net 30 "GND")
 			(pinfunction "B")
 			(pintype "passive")
-			(uuid "65069bac-17b0-46b4-b603-19f750deceec")
+			(uuid "bb784260-03ab-4cd2-8ccf-e54132212736")
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Button_Switch_THT.3dshapes/SW_PUSH_6mm_H4.3mm.step"
@@ -12784,76 +13278,84 @@
 		(uuid "c0328878-fdac-4716-b711-63fb4ffc145b")
 	)
 	(segment
-		(start 151.87 85.63)
-		(end 152.09 85.85)
+		(start 151.65 81.82)
+		(end 148.035 81.82)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 32)
-		(uuid "448444a3-5a56-4840-bd4d-8429e2fc5c6c")
+		(uuid "6db7ac11-cfb2-4ceb-b202-74745d00d5e3")
 	)
 	(segment
-		(start 148.035 85.63)
-		(end 151.87 85.63)
+		(start 152.65 80.82)
+		(end 151.65 81.82)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 32)
-		(uuid "ffc0e8f7-b57f-490a-b730-1807e9130f18")
+		(uuid "f10fe1a6-fe4b-459e-a33d-7fdd2120f725")
 	)
 	(segment
-		(start 148.035 84.36)
-		(end 151.08 84.36)
+		(start 150.42 80.55)
+		(end 148.035 80.55)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 33)
-		(uuid "36e3f8e5-9f16-4247-bbe3-e3d34d755e19")
+		(uuid "3d6d7220-99ac-4c21-8669-9187f5062a27")
+	)
+	(segment
+		(start 152.65 78.32)
+		(end 150.42 80.55)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 33)
+		(uuid "9a099071-8704-4050-8806-d6269cfdc630")
 	)
 	(segment
 		(start 148.395 84)
 		(end 148.035 84.36)
 		(width 0.2)
 		(layer "F.Cu")
-		(net 33)
+		(net 34)
 		(uuid "7d112350-ba7c-4226-baf8-bee15f7e2c9e")
 	)
 	(segment
-		(start 151.08 84.36)
-		(end 152.09 83.35)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 33)
-		(uuid "c93e57e2-e97a-4d6d-ad03-ce04932a80bb")
-	)
-	(segment
-		(start 151.16 79.28)
-		(end 148.035 79.28)
+		(start 151.61 84.36)
+		(end 148.035 84.36)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 34)
-		(uuid "07af0d65-73e2-4a59-a0f6-2412febb82aa")
+		(uuid "a61ed835-3ebf-4d72-a9a9-3eea9adf397b")
 	)
 	(segment
-		(start 152.09 78.35)
-		(end 151.16 79.28)
+		(start 152.65 83.32)
+		(end 151.61 84.36)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 34)
-		(uuid "786983bb-f7e1-4fa9-95b2-83109d1a9d8a")
+		(uuid "df024d3f-afe1-4918-82cb-4d71a48cfb8e")
 	)
 	(segment
-		(start 149.85 83.09)
-		(end 148.035 83.09)
+		(start 148.225 85.82)
+		(end 148.035 85.63)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 35)
-		(uuid "6cbff753-faa4-4967-b8ff-5bc30cb0c921")
+		(uuid "11a4d66c-aa5d-451b-a51d-caabc1c956f5")
 	)
 	(segment
-		(start 152.09 80.85)
-		(end 149.85 83.09)
+		(start 151.87 85.63)
+		(end 152.09 85.85)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 35)
-		(uuid "776fd94e-231f-4ead-a3e7-b7484fa03dbe")
+		(uuid "448444a3-5a56-4840-bd4d-8429e2fc5c6c")
+	)
+	(segment
+		(start 152.65 85.82)
+		(end 148.225 85.82)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 35)
+		(uuid "7940b1e8-9145-4479-a6c2-905a957c332f")
 	)
 	(segment
 		(start 130.535 79.28)
