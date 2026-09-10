@@ -46,8 +46,10 @@ float latestGyroX = 0;
 float latestGyroY = 0;
 float latestGyroZ = 0;
 
+float latestAngularVelocity = 0;
+
 float latestForce = 0;
-long latestPower = 0;
+float latestPower = 0;
 float latestRawForce = 0;
 
 //how many hx711 samples we will take
@@ -118,6 +120,8 @@ void calibrate(int rawForce) {
     intercept = -rawForce * slope;
   }
 }
+
+
 // ======================================================
 //                    WEBSITE
 // ======================================================
@@ -130,7 +134,6 @@ void handleRoot() {
 
     <head>
       <title>ESP32 Power Meter</title>
-      <meta http-equiv="refresh" content="1">
 
       <style>
 
@@ -147,6 +150,27 @@ void handleRoot() {
 
       </style>
 
+      <script>
+
+        setInterval(function() {
+
+          fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+
+              document.getElementById('gyroX').textContent = data.gyroX;
+              document.getElementById('gyroY').textContent = data.gyroY;
+              document.getElementById('gyroZ').textContent = data.gyroZ;
+              document.getElementById('angularVelocity').textContent = data.angularVelocity;
+              document.getElementById('rawValue').textContent = data.raw;
+              document.getElementById('power').textContent = data.power;
+
+        });
+
+        }, 50);
+
+      </script>
+
     </head>
 
     <body>
@@ -154,58 +178,61 @@ void handleRoot() {
       <h1>ESP32 Cycling Power Meter</h1>
 
       <div class="box">
-        <b>Gyro X:</b> )rawliteral";
-
-  html += String(latestGyroX);
-
-  html += R"rawliteral( rad/s
+        <b>Gyro X:</b>
+        <span id="gyroX">0</span> rad/s
       </div>
 
       <div class="box">
-        <b>Gyro Y:</b> )rawliteral";
-
-  html += String(latestGyroY);
-
-  html += R"rawliteral( rad/s
+        <b>Gyro Y:</b>
+        <span id="gyroY">0</span> rad/s
       </div>
 
       <div class="box">
-        <b>Gyro Z:</b> )rawliteral";
-
-  html += String(latestGyroZ);
-
-  html += R"rawliteral( rad/s
-      </div>
-
-    <div class="box">
-        <b>Latest Raw Force:</b> )rawliteral";
-
-  html += String(latestRawForce);
-
-  html += R"rawliteral( N
+        <b>Gyro Z:</b>
+        <span id="gyroZ">0</span> rad/s
       </div>
 
       <div class="box">
-        <b>Force:</b> )rawliteral";
-
-  html += String(latestForce);
-
-  html += R"rawliteral( N
+        <b>Angular Velocity:</b>
+        <span id="angularVelocity">0</span> rad/s
       </div>
 
       <div class="box">
-        <b>Power:</b> )rawliteral";
+        <b>Latest Raw HX711:</b>
+        <span id="rawValue">0</span>
+      </div>
 
-  html += String(latestPower);
-
-  html += R"rawliteral( W
+      <div class="box">
+        <b>Power:</b>
+        <span id="power">0</span> W
       </div>
 
     </body>
     </html>
-    )rawliteral";
+  )rawliteral";
 
   server.send(200, "text/html", html);
+}
+
+
+// ======================================================
+//       SEND ALL LIVE DATA TO THE WEBSITE
+// ======================================================
+
+void handleData() {
+
+  String json = "{";
+
+  json += "\"gyroX\":" + String(latestGyroX, 3) + ",";
+  json += "\"gyroY\":" + String(latestGyroY, 3) + ",";
+  json += "\"gyroZ\":" + String(latestGyroZ, 3) + ",";
+  json += "\"angularVelocity\":" + String(latestAngularVelocity, 3) + ",";
+  json += "\"raw\":" + String(latestRawForce, 0) + ",";
+  json += "\"power\":" + String(latestPower);
+
+  json += "}";
+
+  server.send(200, "application/json", json);
 }
 
 
@@ -285,77 +312,87 @@ void setup() {
   Serial.print("ESP32 IP Address: ");
   Serial.println(IP);
 
+  // ======================================================
+  //                 WEBSITE ENDPOINTS
+  // ======================================================
+
   server.on("/", handleRoot);
+
+  // /data sends all live sensor values
+  server.on("/data", handleData);
 
   server.begin();
 
   Serial.println("Web server started");
 
   int initialForce = 0;
+
   for (int i = 0; i < samples; i++) {
     initialForce += readHX711();
   }
+
   initialForce /= samples;
+
   calibrate(initialForce);
 }
 
+
+// ======================================================
+//                         LOOP
+// ======================================================
+
 void loop() {
 
-  Serial.print("Single Read: ");
-  Serial.println(readHX711());
-
   // ===== Read IMU =====
+
   inv_imu_sensor_event_t imu_event;
+
   IMU->getDataFromRegisters(imu_event);
 
-  //we have to conver to rad/s
+  //we have to convert to rad/s
 
   //16.4 is callibration according to datasheet
   //0.0174533 = pi/180 is converting from degrees/s to rad/s
+
   float gyroX = imu_event.gyro[0] / 16.4 * 0.0174533;
   float gyroY = imu_event.gyro[1] / 16.4 * 0.0174533;
   float gyroZ = imu_event.gyro[2] / 16.4 * 0.0174533;
 
-  Serial.print("Gyro X (rad/s): ");
-  Serial.println(gyroX);
-
-  Serial.print("Gyro Y (rad/s): ");
-  Serial.println(gyroY);
-
-  Serial.print("Gyro Z (rad/s): ");
-  Serial.println(gyroZ);
-
 
   // ===== Read HX711 =====
+
   long measuredForce = 0;
+
   float actualForce;
 
 
   for (int i = 0; i < samples; i++) {
     measuredForce += readHX711();
   }
+
   measuredForce /= samples;
 
+
   //we're going to calibrate using a LOBF for the AVERAGED measured force values
+
   actualForce = slope * measuredForce + intercept + 161.2;
 
-  Serial.print("Force: ");
-  Serial.println(actualForce);
-
-  Serial.print("Raw value: ");
-  Serial.println(measuredForce);
 
   // 1. Calculate Torque (N*m)
+
   double torque = actualForce * crankLength;
 
+
   // 2. Calculate the magnitude of the angular velocity vector from the gyro (rad/s)
-  double angularVelocity = sqrt(gyroX * gyroX + gyroY * gyroY + gyroZ * gyroZ);
+
+  double angularVelocity =
+    sqrt(gyroX * gyroX + gyroY * gyroY + gyroZ * gyroZ);
+
 
   // 3. Power = Torque * Angular Velocity (Watts)
+
   double totalPower = torque * angularVelocity;
 
-  Serial.print("Power: ");
-  Serial.println(totalPower);
 
   // ======================================================
   //          SAVE VALUES FOR WEBSITE DISPLAY
@@ -365,8 +402,12 @@ void loop() {
   latestGyroY = gyroY;
   latestGyroZ = gyroZ;
 
+  latestAngularVelocity = angularVelocity;
+
   latestRawForce = measuredForce;
+
   latestForce = actualForce;
+
   latestPower = totalPower;
 
 
@@ -375,15 +416,4 @@ void loop() {
   // ======================================================
 
   server.handleClient();
-
-  Serial.println("----------------------");
-
-  // if theere is no troque on the crank then we automatically calibrate
-
-  //0.03 << crankLength * 1N
-  if (abs(torque) < 0.03){
-    calibrate(latestRawForce);
-  }
-
-  delay(200);
 }
