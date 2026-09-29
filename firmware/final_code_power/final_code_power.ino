@@ -17,7 +17,8 @@ WebServer server(80);
 // ======================================================
 
 // in meters
-const float crankLength = 0.13;
+const float crankLength = 0.06;
+const float e = 2.7182818;
 
 // ======================================================
 //                    IMU PINS
@@ -48,16 +49,47 @@ float latestGyroZ = 0;
 
 float latestAngularVelocity = 0;
 
-float latestForce = 0;
-float latestPower = 0;
 float latestRawForce = 0;
+float latestSlidingRaw = 0;    // 3-second sliding average raw force
+float latestSlidingPower = 0;  // 3-second sliding average power
 
-//how many hx711 samples we will take
-const int samples = 5;
+// Number of HX711 samples used for initial calibration
+const int samples = 50;
 
-// selecting which LOBF for calibration
 float slope = 0;
-int intercept = 0;
+float intercept = 0;
+
+int initialForce = 0;
+
+// ======================================================
+//                3 SECOND TIMERS & WINDOWS
+// ======================================================
+
+const unsigned long measurementInterval = 1000;
+
+// Time when the current measurement started
+unsigned long measurementStartTime = 0;
+
+// Sum of all HX711 readings during the period
+long double hx711Sum = 0;
+
+// Number of HX711 readings collected
+unsigned long hx711Count = 0;
+
+// IMU accumulation variables for 1-second averaging
+float gyroSumX = 0;
+float gyroSumY = 0;
+float gyroSumZ = 0;
+float angVelSum = 0;
+unsigned long imuSampleCount = 0;
+
+// 3-Second Sliding Window Buffers
+const int windowSize = 3;
+float powerWindow[windowSize] = { 0, 0, 0 };
+int windowIndex = 0;
+
+float rawWindow[windowSize] = { 0, 0, 0 };
+int rawWindowIndex = 0;
 
 // ======================================================
 //                    HX711 FUNCTION
@@ -97,31 +129,6 @@ long readHX711() {
   return count;
 }
 
-
-void calibrate(int rawForce) {
-
-  if (rawForce < 7191500) {
-    slope = 3.318678e-5;
-    intercept = -238.398035;
-
-  } else if (rawForce >= 7191500 && rawForce < 7217000) {
-    slope = 3.809550e-5;
-    intercept = -274.868529;
-
-  } else if (rawForce >= 7217000 && rawForce < 7227000) {
-    slope = 3.229836e-5;
-    intercept = -233.323349;
-
-  } else if (rawForce >= 7227000) {
-    slope = 3.537439e-5;
-    intercept = -255.456810;
-  } else {
-    slope = (2.35e-12 * rawForce) - 1.33e-5;
-    intercept = -rawForce * slope;
-  }
-}
-
-
 // ======================================================
 //                    WEBSITE
 // ======================================================
@@ -152,7 +159,7 @@ void handleRoot() {
 
       <script>
 
-        setInterval(function() {
+        function updateData() {
 
           fetch('/data')
             .then(response => response.json())
@@ -163,11 +170,17 @@ void handleRoot() {
               document.getElementById('gyroZ').textContent = data.gyroZ;
               document.getElementById('angularVelocity').textContent = data.angularVelocity;
               document.getElementById('rawValue').textContent = data.raw;
-              document.getElementById('power').textContent = data.power;
+              document.getElementById('slidingRaw').textContent = data.slidingRaw;
+              document.getElementById('slidingPower').textContent = data.slidingPower;
 
-        });
+            });
 
-        }, 50);
+        }
+
+        setInterval(updateData, 1000);
+
+        // Get the first reading immediately
+        updateData();
 
       </script>
 
@@ -198,13 +211,18 @@ void handleRoot() {
       </div>
 
       <div class="box">
-        <b>Latest Raw HX711:</b>
+        <b>Average Raw HX711:</b>
         <span id="rawValue">0</span>
       </div>
 
       <div class="box">
-        <b>Power:</b>
-        <span id="power">0</span> W
+        <b>3-Sec Sliding Raw HX711:</b>
+        <span id="slidingRaw">0</span>
+      </div>
+
+      <div class="box">
+        <b>3-Sec Average Power:</b> 
+        <span id="slidingPower">0</span> W
       </div>
 
     </body>
@@ -214,9 +232,8 @@ void handleRoot() {
   server.send(200, "text/html", html);
 }
 
-
 // ======================================================
-//       SEND ALL LIVE DATA TO THE WEBSITE
+//      SEND ALL LIVE DATA TO THE WEBSITE
 // ======================================================
 
 void handleData() {
@@ -228,16 +245,16 @@ void handleData() {
   json += "\"gyroZ\":" + String(latestGyroZ, 3) + ",";
   json += "\"angularVelocity\":" + String(latestAngularVelocity, 3) + ",";
   json += "\"raw\":" + String(latestRawForce, 0) + ",";
-  json += "\"power\":" + String(latestPower);
+  json += "\"slidingRaw\":" + String(latestSlidingRaw, 0) + ",";
+  json += "\"slidingPower\":" + String(latestSlidingPower, 2);
 
   json += "}";
 
   server.send(200, "application/json", json);
 }
 
-
 // ======================================================
-//                         SETUP
+//                        SETUP
 // ======================================================
 
 void setup() {
@@ -271,8 +288,11 @@ void setup() {
   Serial.println(who_am_i, HEX);
 
   if (who_am_i != 0x67) {
+
     Serial.println("WARNING: Chip ID mismatch!");
+
   } else {
+
     Serial.println("IMU detected correctly.");
   }
 
@@ -300,6 +320,18 @@ void setup() {
   delay(100);
 
   // ======================================================
+  //                    INITIAL CALIBRATION
+  // ======================================================
+
+
+  for (int i = 0; i < samples; i++) {
+
+    initialForce += readHX711();
+  }
+
+  initialForce /= samples;
+
+  // ======================================================
   //                    WIFI SETUP
   // ======================================================
 
@@ -313,106 +345,119 @@ void setup() {
   Serial.println(IP);
 
   // ======================================================
-  //                 WEBSITE ENDPOINTS
+  //                    WEBSITE ENDPOINTS
   // ======================================================
 
   server.on("/", handleRoot);
 
-  // /data sends all live sensor values
   server.on("/data", handleData);
 
   server.begin();
 
   Serial.println("Web server started");
 
-  int initialForce = 0;
+  // Start the first measurement period
+  measurementStartTime = millis();
 
-  for (int i = 0; i < samples; i++) {
-    initialForce += readHX711();
-  }
-
-  initialForce /= samples;
-
-  calibrate(initialForce);
+  Serial.print("Initial HX711 average: ");
+  Serial.println(initialForce);
 }
 
-
 // ======================================================
-//                         LOOP
+//                        LOOP
 // ======================================================
 
 void loop() {
 
-  // ===== Read IMU =====
+  // ======================================================
+  //                    READ IMU
+  // ======================================================
 
   inv_imu_sensor_event_t imu_event;
 
   IMU->getDataFromRegisters(imu_event);
 
-  //we have to convert to rad/s
-
-  //16.4 is callibration according to datasheet
-  //0.0174533 = pi/180 is converting from degrees/s to rad/s
-
   float gyroX = imu_event.gyro[0] / 16.4 * 0.0174533;
   float gyroY = imu_event.gyro[1] / 16.4 * 0.0174533;
   float gyroZ = imu_event.gyro[2] / 16.4 * 0.0174533;
 
+  float angularVelocity = sqrt(gyroX * gyroX + gyroY * gyroY + gyroZ * gyroZ);
 
-  // ===== Read HX711 =====
+  gyroSumX += gyroX;
+  gyroSumY += gyroY;
+  gyroSumZ += gyroZ;
+  angVelSum += angularVelocity;
+  imuSampleCount++;
 
-  long measuredForce = 0;
+  // ======================================================
+  //                    READ HX711
+  // ======================================================
 
-  float actualForce;
+  long measuredForce = readHX711();
 
+  hx711Sum += abs(measuredForce - initialForce);
+  hx711Count++;
 
-  for (int i = 0; i < samples; i++) {
-    measuredForce += readHX711();
+  // Update every second
+  if (millis() - measurementStartTime >= measurementInterval) {
+
+    // 1. Calculate 1-second averages
+    float avgGyroX = gyroSumX / imuSampleCount;
+    float avgGyroY = gyroSumY / imuSampleCount;
+    float avgGyroZ = gyroSumZ / imuSampleCount;
+    float avgAngularVelocity = angVelSum / imuSampleCount;
+    float averageHX711 = hx711Sum / hx711Count;
+
+    // 2. Update 3-Second Sliding Window for Raw Force
+    rawWindow[rawWindowIndex] = averageHX711;
+    rawWindowIndex = (rawWindowIndex + 1) % windowSize;
+
+    float rawSlidingSum = 0;
+    for (int i = 0; i < windowSize; i++) {
+      rawSlidingSum += rawWindow[i];
+    }
+    float slidingRaw = rawSlidingSum / windowSize;
+    float torque = 0.000108 * slidingRaw - 0.744;
+
+    // 3. Calculate 1-Second Power & Update 3-Second Sliding Power Window
+    float oneSecondPower = torque * avgAngularVelocity;
+
+    powerWindow[windowIndex] = oneSecondPower;
+    windowIndex = (windowIndex + 1) % windowSize;
+
+    float powerSlidingSum = 0;
+    for (int i = 0; i < windowSize; i++) {
+      powerSlidingSum += powerWindow[i];
+    }
+    float slidingPower = powerSlidingSum / windowSize;
+    slidingPower -= 40;
+
+    // 5. Save globals
+    latestGyroX = avgGyroX;
+    latestGyroY = avgGyroY;
+    latestGyroZ = avgGyroZ;
+    latestAngularVelocity = avgAngularVelocity;
+    latestRawForce = averageHX711;
+    latestSlidingRaw = slidingRaw;
+    latestSlidingPower = slidingPower;
+
+    Serial.print("lastestSlidingPower");
+    Serial.println(latestSlidingPower);
+
+    // 6. Reset ALL accumulators
+    hx711Sum = 0;
+    hx711Count = 0;
+    gyroSumX = 0;
+    gyroSumY = 0;
+    gyroSumZ = 0;
+    angVelSum = 0;
+    imuSampleCount = 0;
+
+    measurementStartTime = millis();
   }
 
-  measuredForce /= samples;
-
-
-  //we're going to calibrate using a LOBF for the AVERAGED measured force values
-
-  actualForce = slope * measuredForce + intercept + 161.2;
-
-
-  // 1. Calculate Torque (N*m)
-
-  double torque = actualForce * crankLength;
-
-
-  // 2. Calculate the magnitude of the angular velocity vector from the gyro (rad/s)
-
-  double angularVelocity =
-    sqrt(gyroX * gyroX + gyroY * gyroY + gyroZ * gyroZ);
-
-
-  // 3. Power = Torque * Angular Velocity (Watts)
-
-  double totalPower = torque * angularVelocity;
-
-
   // ======================================================
-  //          SAVE VALUES FOR WEBSITE DISPLAY
-  // ======================================================
-
-  latestGyroX = gyroX;
-  latestGyroY = gyroY;
-  latestGyroZ = gyroZ;
-
-  latestAngularVelocity = angularVelocity;
-
-  latestRawForce = measuredForce;
-
-  latestForce = actualForce;
-
-  latestPower = totalPower;
-
-
-  // ======================================================
-  //                 HANDLE WEBSITE
+  //                    HANDLE WEBSITE
   // ======================================================
 
   server.handleClient();
